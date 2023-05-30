@@ -1,6 +1,7 @@
 import Feedback from './Feedback';
-
+import FeedbackOptions from './FeedbackOptions';
 export const App = () => {
+
   return (
     <div
       style={{
