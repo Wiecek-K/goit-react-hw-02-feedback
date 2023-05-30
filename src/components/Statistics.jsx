@@ -23,14 +23,13 @@ class Statistics extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Statistics</h3>
+      <>
         <h5>Good: {this.props.good}</h5>
         <h5>Neutral: {this.props.neutral}</h5>
         <h5>Bad: {this.props.bad}</h5>
         <h5>Total: {this.props.total}</h5>
         <h5>Total: {this.props.positivePercentage}</h5>
-      </div>
+      </>
     );
   }
 }
