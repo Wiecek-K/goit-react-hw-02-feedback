@@ -3,17 +3,12 @@ import PropTypes from 'prop-types';
 import FeedbackOptions from './FeedbackOptions';
 import Statistics from './Statistics';
 class Feedback extends Component {
-  static defaultProps = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  };
   constructor(props) {
     super(props);
     this.state = {
-      good: this.props.good,
-      neutral: this.props.neutral,
-      bad: this.props.bad,
+      good: 0,
+      neutral: 0,
+      bad: 0,
     };
   }
   static propTypes = {
@@ -23,7 +18,8 @@ class Feedback extends Component {
   };
   clickHandler = e => {
     this.setState(prevState => ({
-      [e.target.textContent]: prevState[e.target.textContent] + 1,
+      [e.target.textContent.toLowerCase()]:
+        prevState[e.target.textContent.toLowerCase()] + 1,
     }));
   };
   countTotalFeedback = () =>
@@ -32,7 +28,6 @@ class Feedback extends Component {
     this.countTotalFeedback()
       ? `${((this.state.good / this.countTotalFeedback()) * 100).toFixed(1)}%`
       : 'There is no feedback';
-
   render() {
     return (
       <div>

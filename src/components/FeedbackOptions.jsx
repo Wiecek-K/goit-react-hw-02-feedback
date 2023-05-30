@@ -12,8 +12,8 @@ class FeedbackOptions extends Component {
       <div>
         <h2>Please leave feedback</h2>
         {this.props.options.map((option, index) => (
-          <button id={index} onClick={this.props.onLeaveFeedback}>
-            {option}
+          <button key={index} onClick={this.props.onLeaveFeedback}>
+            {option[0].toUpperCase() + option.slice(1)}
           </button>
         ))}
       </div>
