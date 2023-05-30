@@ -3,11 +3,8 @@ import PropTypes from 'prop-types';
 
 class Statistics extends Component {
   static defaultProps = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
-    total: 0,
-    positivePercentage: 0,
+    contacts: [],
+    name: '',
   };
 
   static propTypes = {
