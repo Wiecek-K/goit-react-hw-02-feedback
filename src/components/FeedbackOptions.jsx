@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 class FeedbackOptions extends Component {
   static propTypes = {
-    options: PropTypes.array.isRequired,
+    options: PropTypes.arrayOf(PropTypes.oneOf(['good', 'neutral', 'bad']))
+      .isRequired,
     onLeaveFeedback: PropTypes.func.isRequired,
   };
 
