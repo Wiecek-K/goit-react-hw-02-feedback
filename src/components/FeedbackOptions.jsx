@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from './FeedbackOptions.module.css';
 
 class FeedbackOptions extends Component {
   static propTypes = {
-    options: PropTypes.arrayOf(PropTypes.oneOf(['good', 'neutral', 'bad']))
-      .isRequired,
+    options: PropTypes.arrayOf(PropTypes.string),
     onLeaveFeedback: PropTypes.func.isRequired,
   };
 
@@ -12,8 +12,14 @@ class FeedbackOptions extends Component {
     return (
       <>
         {this.props.options.map((option, index) => (
-          <button key={index} onClick={this.props.onLeaveFeedback}>
-            {option[0].toUpperCase() + option.slice(1)}
+          <button
+            className={css.btn}
+            key={index}
+            onClick={() => {
+              this.props.onLeaveFeedback(option);
+            }}
+          >
+            {option}
           </button>
         ))}
       </>

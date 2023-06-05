@@ -21,11 +21,17 @@ class Statistics extends Component {
   render() {
     return (
       <>
-        <h5>Good: {this.props.good}</h5>
-        <h5>Neutral: {this.props.neutral}</h5>
-        <h5>Bad: {this.props.bad}</h5>
-        <h5>Total: {this.props.total}</h5>
-        <h5>Total: {this.props.positivePercentage}</h5>
+        {this.props.total ? (
+          <>
+            <h5>Good: {this.props.good}</h5>
+            <h5>Neutral: {this.props.neutral}</h5>
+            <h5>Bad: {this.props.bad}</h5>
+            <h5>Total: {this.props.total}</h5>
+            <h5>Total: {this.props.positivePercentage}</h5>
+          </>
+        ) : (
+          <h5>There is no feedback</h5>
+        )}
       </>
     );
   }

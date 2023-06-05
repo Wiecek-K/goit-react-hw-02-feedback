@@ -14,19 +14,18 @@ class Feedback extends Component {
     };
   }
 
-  clickHandler = e => {
+  clickHandler = option => {
     this.setState(prevState => ({
-      [e.target.textContent.toLowerCase()]:
-        prevState[e.target.textContent.toLowerCase()] + 1,
+      [option]: prevState[option] + 1,
     }));
   };
   countTotalFeedback = () => {
     return this.state.good + this.state.bad + this.state.neutral;
   };
   countPositiveFeedbackPercentage = () => {
-    return this.countTotalFeedback()
-      ? `${((this.state.good / this.countTotalFeedback()) * 100).toFixed(1)}%`
-      : 'There is no feedback';
+    return `${((this.state.good / this.countTotalFeedback()) * 100).toFixed(
+      1
+    )}%`;
   };
 
   static propTypes = {
@@ -40,7 +39,7 @@ class Feedback extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.clickHandler}
           />
         </Section>
